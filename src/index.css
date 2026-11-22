@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-paper: #f4f4ec;
+  --color-surface: #e8e8de;
+  --color-ink: #090909;
+  --color-obsidian: #0d0d0d;
+  --color-coral: #ff957a;
+  --color-pink: #ff8ea3;
+  --color-rose-ink: #c41e45;
+  --color-muted: #58584f;
+  --color-line: rgba(9, 9, 9, 0.14);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    scroll-padding-top: 5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 3px;
+  }
+}
+
+@keyframes az-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.az-marquee-track {
+  animation: az-marquee 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .az-marquee-track {
+    animation: none;
+  }
+}
